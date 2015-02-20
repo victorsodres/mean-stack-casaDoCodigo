@@ -1,9 +1,9 @@
 angular.module('contatooh')
-.controller('ContatosController', function($scope, $resource) {
+.controller('ContatosController', function($scope, $http) {
     $scope.total = 0;
     $scope.contatos = [];
     $scope.filtro = '';
-    
+
     $http.get('/contatos')
         .success(function(data){
             $scope.contatos = data;
@@ -12,5 +12,5 @@ angular.module('contatooh')
             console.log('Não foi possível obter a lista de contatos.');
             console.log(error.statusText);
         })
-    
+
 });
